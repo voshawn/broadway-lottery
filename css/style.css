@@ -1,0 +1,218 @@
+html {
+  min-height: 500px;
+  width: 440px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+}
+
+body {
+	margin: 0;
+}
+
+h1 {
+	margin: 0;
+	height: 4px;
+	text-align: center;
+	font-family: 'Encode Sans Condensed', sans-serif;
+	font-weight: 100;
+	font-size: 200%;
+	background: #FF5B4E;
+	color: #ffffff;
+	box-shadow: 1px 1px 5px #FF3A2A;
+}
+
+h2 {
+	margin: 0px;
+	font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.lotteries-right {
+	display: none;
+}
+
+div.two.columns.lotteries-center {
+	display: none;
+}
+/* Header */
+#header {
+  font-size: 110%;
+  font-weight: 400;
+}
+
+#lottery-tabs {
+	display: flex;
+}
+
+.tab {
+	flex: 1;
+	padding: 10px;
+	margin: 0 1px 0 1px;
+	text-align: center;
+	text-decoration: none;
+	color: #000000;
+	border-radius: 3px 3px 0px 0px;
+	border: 1px #FF5B4E solid;
+	background: #fefefe;
+}
+
+.active-tab {
+	background: #FF5B4E;
+	color: #ffffff;
+}
+
+/* Active Lotteries */
+#active-shows-container {
+	margin: 0px;
+}
+
+#active-shows {
+	margin: 20px 20px 0px 20px;
+	height: 400px;
+	overflow-y: auto;
+}
+
+.active-lottery-entry {
+	display: flex;
+	margin: 10px;
+}
+
+.active-lottery-details {
+	flex: 4;
+}
+
+.active-checkbox {
+	flex: 1;
+	margin: auto;
+	width: 25px;
+	height: 25px;
+	text-align: right;
+}
+
+input.lottery-direct-checkbox {
+	display: none;
+}
+
+input.lucky-checkbox {
+	display: none;
+}
+
+div.checkbox-image {
+	width:23px;
+	height:23px;
+	display:inline-block;
+	border:2px solid #000;
+	text-align:center;
+	line-height:20px;
+	margin-right:6px;
+	border-radius:3px;
+	cursor:pointer;
+}
+
+label.checkbox-label img {
+	opacity: 0;
+}
+input:checked+label.checkbox-label img{ opacity:1; }
+
+#active-shows div.three.columns.lotteries-status {
+	display: none;
+}
+
+#open-shows-wrapper {
+	width: 32%;
+	margin: auto;
+}
+
+#open-shows {
+  background-color: #FFBC2A;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+	margin: auto;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+	border-radius: 2px;
+	font-size: 100%;
+	cursor: pointer;
+}
+
+#open-shows:hover {
+	background-color: #ffcf66;
+}
+
+/* Upcoming Lotteries */
+#upcoming-shows-container {
+	display: none;
+}
+
+#upcoming-shows {
+	margin: 20px 0px 0px 20px;
+	height: 400px;
+	overflow-y: auto;
+}
+
+.upcoming-lottery-entry {
+	margin: 10px;
+}
+
+
+/* Profile */
+#profile-container {
+	display: none;
+}
+
+#profile-info {
+	width: 380px;
+	margin: 30px;
+}
+
+#save-button-wrapper {
+	width: 10%;
+	margin: 40px auto 0 auto;
+}
+
+#save-button {
+  background-color: #FFBC2A;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  margin: auto;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 2px;
+  font-size: 100%;
+	cursor: pointer;
+}
+
+#save-button:hover {
+	background-color: #ffcf66;
+}
+
+div.ui.dropdown.selection {
+	min-height:0;
+}
+
+#country-field {
+	margin-top: 10px;
+}
+
+#phone-field {
+	margin-top: 10px;
+}
+
+.ui.form .field>.selection.dropdown {
+	min-width: 0;
+	width: 120px;
+}
+
+.ui.selection.dropdown .menu>.item {
+	font-size: 12px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
