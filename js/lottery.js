@@ -1,5 +1,5 @@
 chrome.storage.sync.get(["profile"], function(result) {
-	var profile = result.profile;
+  var profile = result.profile;
   if (profile) {
     var firstName = document.getElementById("dlslot_name_first");
     var lastName = document.getElementById("dlslot_name_last");
@@ -28,49 +28,49 @@ chrome.storage.sync.get(["profile"], function(result) {
     }
 
 
-		var firstName = document.getElementById("firstname");
+    var firstName = document.getElementById("firstname");
     var lastName = document.getElementById("lastname");
     var email = document.getElementById("email");
     var zip = document.getElementById("zipcode");
-		var oneTicket = document.getElementById("one_ticket");
-		var twoTickets = document.getElementById("two_tickets");
+    var oneTicket = document.getElementById("one_ticket");
+    var twoTickets = document.getElementById("two_tickets");
     var checkboxes = document.querySelectorAll("input[type=checkbox]");
-		var phone = document.getElementById("phonenumber");
-		var phoneCheckbox = document.getElementById("mobile_notification");
-		var shows = [];
-		checkboxes.forEach(function(checkbox) {
-			if (checkbox.id.startsWith("performance")) {
-				shows.push(checkbox);
-			}
-		});
-		var age = document.getElementById("age");
-		function calculateAge(birthday) { // birthday is a date
-   	  return Date.now() - birthday.getTime() / (1000 * 60 * 60 * 24 * 365); // in years
-		}
+    var phone = document.getElementById("phonenumber");
+    var phoneCheckbox = document.getElementById("mobile_notification");
+    var shows = [];
+    checkboxes.forEach(function(checkbox) {
+      if (checkbox.id.startsWith("performance")) {
+        shows.push(checkbox);
+      }
+    });
+    var age = document.getElementById("age");
+    function calculateAge(birthday) { // birthday is a date
+      return Date.now() - birthday.getTime() / (1000 * 60 * 60 * 24 * 365); // in years
+    }
 
     try {
       firstName.value = profile.firstname;
       lastName.value = profile.lastname;
       if (profile.ticketnum == 2) {
-				twoTickets.checked = true;
-			} else {
-				oneTicket.checked = true;
-			}
+        twoTickets.checked = true;
+      } else {
+        oneTicket.checked = true;
+      }
       email.value = profile.email;
       zip.value = profile.zip;
-			shows.forEach(function(show) {
+      shows.forEach(function(show) {
       show.checked = true;
-			});
+      });
 
-			var birthday = new Date(profile.year, profile.month, profile.day);
-			if (calculateAge(birthday) >= 18) {
-				age.checked = true;
-			}
+      var birthday = new Date(profile.year, profile.month, profile.day);
+      if (calculateAge(birthday) >= 18) {
+        age.checked = true;
+      }
 
-			if (profile.phone != "") {
-				phone.value = profile.phone;
-				phoneCheckbox.checked = true;
-			}
+      if (profile.phone != "") {
+        phone.value = profile.phone;
+        phoneCheckbox.checked = true;
+      }
     } catch (e) {
       // console.log("Error ", e.toString());
     }

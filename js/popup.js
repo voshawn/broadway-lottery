@@ -1,8 +1,18 @@
+
+/////////////////////
+// GLOBAL VARIBLES //
+/////////////////////
+
+// Need this to console.log()
+// ex: bkg.console.log('foo')
 var bkg = chrome.extension.getBackgroundPage();
 
 var activeDiv = document.getElementById("open-shows-wrapper");
 var upcomingDiv = document.getElementById("upcoming-shows");
 var showIndex = 0;
+/////////////////////////
+// END GLOBAL VARIBLES //
+/////////////////////////
 
 
 /////////////////////////////
@@ -41,12 +51,12 @@ bwdirect_xhr.onreadystatechange = function() {
           });
           $.each(lotteries, function(i, lottery) {
             isActive = $(lottery).find(".active");
+            var title = $(card).find("a")[0].innerText
+            var date = $(lottery).find(".lotteries-time")[0].innerText
+            date = date.replace(/\s+/g, ' ').trim();
+            var price = $(lottery).find(".price")[0].innerText
+            var link = $(lottery).find(".enter-lottery-link").attr("href")
             if (isActive.length > 0) {
-              var title = $(card).find("a")[0].innerText
-              var date = $(lottery).find(".lotteries-time")[0].innerText
-              date = date.replace(/\s+/g, ' ').trim();
-              var price = $(lottery).find(".price")[0].innerText
-              var link = $(lottery).find(".enter-lottery-link").attr("href")
               var lotteryDetails = {
                 title: title,
                 date:  date,
@@ -56,17 +66,14 @@ bwdirect_xhr.onreadystatechange = function() {
               renderActiveLotteryRow(lotteryDetails)
               showIndex++;
             }
-
             isUpcoming = $(lottery).find(".pending");
             if (isUpcoming.length > 0) {
-              var lotteryDiv = document.createElement("div");
-              lotteryDiv.className = "upcoming-lottery-entry";
-              var header = document.createElement("h2");
-              $(header).html($(card).find("a")[0].innerText);
-              lotteryDiv.append(header);
-              lotteryDiv.append(lottery);
-              lotteryDiv.append(document.createElement("br"));
-              upcomingDiv.append(lotteryDiv);
+              var lotteryDetails = {
+                title: title,
+                date:  date,
+                price: price,
+              }
+              renderUpcomingLotteryRow(lotteryDetails)
             }
           });
         }
@@ -171,6 +178,29 @@ function renderActiveLotteryRow(lotteryDetails) {
   lotteryDiv.append(newDiv);
   lotteryDiv.append(checkboxDiv);
   activeDiv.before(lotteryDiv);
+}
+
+function renderUpcomingLotteryRow(lotteryDetails) {
+  var lotteryDiv = document.createElement("div");
+  lotteryDiv.className = "upcoming-lottery-entry";
+  var newDiv = document.createElement("div");
+  newDiv.className = "active-lottery-details";
+  var nameDiv = document.createElement("div");
+  var header = document.createElement("h2");
+  $(header).html(lotteryDetails.title);
+  nameDiv.append(header);
+  newDiv.append(nameDiv);
+  var dateDiv = document.createElement("div");
+  dateDiv.innerHTML = "<span>" + lotteryDetails.date + "</span>";
+  newDiv.append(dateDiv);
+  var priceDiv = document.createElement("div");
+  priceDiv.innerHTML = "<span>" + lotteryDetails.price + "</span>";
+  newDiv.append(priceDiv);
+  var linkDiv = document.createElement("div");
+  linkDiv.innerHTML = "<a href='" +  lotteryDetails.link + "'></a>";
+  newDiv.append(linkDiv);
+  lotteryDiv.append(newDiv);
+  upcomingDiv.append(lotteryDiv);
 }
 
 chrome.storage.sync.get("profile", function(data) {
