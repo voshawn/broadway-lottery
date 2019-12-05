@@ -1,105 +1,125 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/background.js"></script>
-    <link rel="stylesheet" href="css/form.min.css"/>
-    <link rel="stylesheet" href="css/dropdown.min.css"/>
-    <link rel="stylesheet" href="css/transition.min.css"/>
-		<script src="js/form.min.js"></script>
-		<script src="js/dropdown.min.js"></script>
-		<script src="js/transition.min.js"></script>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed|Roboto">
-    <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-		<div id ="header">
-			<div id="lottery-tabs">
-				<a href="#" id="see-active-shows" class="tab active-tab">Active Lotteries</a>
-				<a href="#" id="see-upcoming-shows" class="tab">Upcoming Lotteries</a>
-				<a href="#" id="edit-profile" class="tab">Edit Profile</a>
-			</div>
-		</div>
-		<div id="active-shows-container">
-			<h1></h1>
-			<div id="active-shows">
-				<div id="open-shows-wrapper">
-					<button id="open-shows"> Enter Selected </button>
-				</div>
-			</div>
-		</div>
-		<div id="upcoming-shows-container">
-			<h1></h1>
-			<div id="upcoming-shows"></div>
-		</div>
+<html>
 
-    <div class="container" id="profile-container">
+<head>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/background.js"></script>
+	<link rel="stylesheet" href="css/form.min.css" />
+	<link rel="stylesheet" href="css/dropdown.min.css" />
+	<link rel="stylesheet" href="css/transition.min.css" />
+	<script src="js/form.min.js"></script>
+	<script src="js/dropdown.min.js"></script>
+	<script src="js/transition.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed|Roboto">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div id="header">
+		<div id="lottery-tabs">
+			<a href="#" id="see-active-shows" class="tab active-tab">Active Lotteries</a>
+			<a href="#" id="see-upcoming-shows" class="tab">Upcoming Lotteries</a>
+			<a href="#" id="edit-profile" class="tab">Edit Profile</a>
+		</div>
+	</div>
+	<div id="active-shows-container">
+		<h1></h1>
+		<div id="active-shows">
+			<div id="open-shows-wrapper">
+				<button id="open-shows"> Enter Selected </button>
+			</div>
+		</div>
+	</div>
+	<div id="upcoming-shows-container">
+		<h1></h1>
+		<div id="upcoming-shows"></div>
+	</div>
+
+	<div class="container" id="profile-container">
 		<h1></h1>
 		<div id="profile-info">
+
 			<div class="ui mini form">
-			  <div class="field">
-				<label>Name</label>
-				<div class="inline fields">
-	      	    <div class="field">
-	      	  	  <input id="firstName" type="text" placeholder="First Name">
-	      	    </div>
-	      	    <div class="field">
-	      	      <input id="lastName" type="text" placeholder="Last Name">
-	      	    </div>
+				<div class="field">
+					<label>Set Profile</label>
+
+					<div class="inline fields">
+						<div class="field">
+							<select id="activeProfile" class="ui dropdown">
+								<option value="OTHER">Other</option>
+								<option value="CA">Canada</option>
+								<option value="USA">United States</option>
+							</select>
+						</div>
+						<button type="button" id="add-profile-button">+ Add</button>
+						<button type="button" id="remove-profile-button">- Del</button>
+					</div>
 				</div>
-			</div>
-	        <div class="twelve wide field">
-	          <label>Email</label>
-	          <input id="email" type="text">
-	        </div>
-	        <div class="field">
-	          <label>Date of Birth</label>
-	          <div id="date-input" class="inline fields">
-	            <div class="field">
-	             <input id="month" min="1" max="12" type="number" placeholder="MM" data-length="2" required>
-	            </div>
-	            <div class="field">
-	             <input id="day" min="1" max="31" type="number" placeholder="DD" data-length="2" required>
-	            </div>
-	            <div class="field">
-	             <input id="year" min="1850" max="2100" type="number" placeholder="YYYY" data-length="4" required>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="fields">
-		        <div class="field" id="ticket-field">
-		          <label for="ticketNum"># of Tickets</label>
-		          <select id="ticketNum" class="ui dropdown">
-		            <option value="0">0</option>
-		            <option value="1">1</option>
-		            <option value="2" selected>2</option>
-		          </select>
-		        </div>
-		        <div class="field">
-		          <label for="zip">Zip Code</label>
-		          <input type="number" id="zip">
-		        </div>
-	        </div>
-	        <div class="fields">
-		        <div class="field" id="country-field">
-		          <label for="country">Country</label>
-		          <select id="country" class="ui dropdown">
-		            <option value="OTHER">Other</option>
-		            <option value="CA">Canada</option>
-		            <option value="USA" selected="selected">United States</option>
-		          </select>
-		        </div>
-						<div class="field" id="phone-field">
-		          <label for="phone">Phone</label>
-		          <input type="number" id="phone" placeholder="(optional text notifications)">
+				<div class="field">
+					<label>Name</label>
+					<div class="inline fields">
+						<div class="field">
+							<input id="firstName" type="text" placeholder="First Name">
+						</div>
+						<div class="field">
+							<input id="lastName" type="text" placeholder="Last Name">
 						</div>
 					</div>
-	        <div id="save-button-wrapper">
-	          <button type="button" id="save-button">Save</button>
-	        </div>
-	      </div>
+				</div>
+				<div class="twelve wide field">
+					<label>Email</label>
+					<input id="email" type="text">
+				</div>
+				<div class="field">
+					<label>Date of Birth</label>
+					<div id="date-input" class="inline fields">
+						<div class="field">
+							<input id="month" min="1" max="12" type="number" placeholder="MM" data-length="2" required>
+						</div>
+						<div class="field">
+							<input id="day" min="1" max="31" type="number" placeholder="DD" data-length="2" required>
+						</div>
+						<div class="field">
+							<input id="year" min="1850" max="2100" type="number" placeholder="YYYY" data-length="4"
+								required>
+						</div>
+					</div>
+				</div>
+				<div class="fields">
+					<div class="field" id="ticket-field">
+						<label for="ticketNum"># of Tickets</label>
+						<select id="ticketNum" class="ui dropdown">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2" selected>2</option>
+						</select>
+					</div>
+					<div class="field">
+						<label for="zip">Zip Code</label>
+						<input type="number" id="zip">
+					</div>
+				</div>
+				<div class="fields">
+					<div class="field" id="country-field">
+						<label for="country">Country</label>
+						<select id="country" class="ui dropdown">
+							<option value="OTHER">Other</option>
+							<option value="CA">Canada</option>
+							<option value="USA" selected="selected">United States</option>
+						</select>
+					</div>
+					<div class="field" id="phone-field">
+						<label for="phone">Phone</label>
+						<input type="number" id="phone" placeholder="(optional text notifications)">
+					</div>
+				</div>
+				<div id="save-button-wrapper">
+					<button type="button" id="save-button">Save</button>
+				</div>
+			</div>
 		</div>
-  	</div>
+	</div>
 	<script type="text/javascript" src="js/popup.js"></script>
-    </body>
-  </html>
+</body>
+
+</html>
