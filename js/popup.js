@@ -446,32 +446,17 @@ $("#open-shows").click(function () {
   chrome.storage.sync.get({ profiles: [] }, function (result) {
     var profiles = result.profiles
 
-    selected.forEach(function (show_url) {
-      for (var i = 0; i < profiles.length; i++) {
-        var profile = profiles[i]
+    for (var i = 0; i < profiles.length; i++) {
+      var profile = profiles[i]
+      selected.forEach(function (show_url) {
 
         chrome.runtime.sendMessage({
           'show_url': show_url,
           'profile': profile
         })
 
-        // chrome.tabs.create({
-        //   url: show_url,
-        //   active: false
-        // }, function (tab) {
-        //   setTimeout(function(){ 
-        //     chrome.tabs.executeScript(tab.id, {
-        //       code: "console.log('Setting profile'); var profile = " + JSON.stringify(profile)
-        //     }, function () {
-        //       chrome.tabs.executeScript(tab.id, { file: "js/lottery.js" })
-        //     })
-        //   }, 5000);
-        // });
-
-        // console.log("info: " + JSON.stringify(profiles[i]))
-
-      }
-    });
+      });
+    }
 
   });
 
