@@ -12,16 +12,6 @@
       "declarativeContent",
       "storage"
     ],
-    "content_scripts": [
-    {
-      "matches": ["*://lottery.broadwaydirect.com/*",
-        "*://luckyseat.com/*",
-        "*://*.luckyseat.com/*"
-      ],
-      "js": ["js/lottery.js"],
-      "all_frames": true
-    }
-    ],
     "background": {
       "scripts": ["js/jquery.js", "js/background.js"],
       "persistent": false

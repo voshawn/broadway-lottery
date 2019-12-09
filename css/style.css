@@ -184,6 +184,34 @@ input:checked+label.checkbox-label img{ opacity:1; }
   cursor: pointer;
 }
 
+#remove-profile-button {
+  background-color: #FFC107;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  margin: auto;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 2px;
+  font-size: 100%;
+  cursor: pointer;
+}
+
+#add-profile-button {
+  background-color: #FFC107;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  margin: auto;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 2px;
+  font-size: 100%;
+  cursor: pointer;
+}
+
 #save-button:hover {
   background-color: #ffcf66;
 }
