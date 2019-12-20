@@ -19,7 +19,8 @@
     "content_scripts": [
       {
         "matches": [
-          "*://lottery.broadwaydirect.com/enter-lottery/duplicate-entry/*"
+          "*://lottery.broadwaydirect.com/enter-lottery/duplicate-entry/*",
+          "*://lottery.broadwaydirect.com/enter-lottery/success/*"
         ],
         "js": ["js/auto-close.js"],
         "all_frames": true

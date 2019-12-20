@@ -1,9 +1,10 @@
 
 function checkClose() {
+    // These must be lowercase
+    messages = ['you have already entered this lottery.', 'your lottery entry has been received!']
+    pageText = document.documentElement.innerText.toLowerCase()
     if (
-        (
-            document.documentElement.textContent.toLowerCase() || document.documentElement.innerText.toLowerCase()
-        ).indexOf('You have already entered this lottery.'.toLowerCase()) > -1
+        messages.some(r => pageText.includes(r))
     ) {
         chrome.runtime.sendMessage({
             'message': 'close_me',
@@ -14,29 +15,4 @@ function checkClose() {
     }
 
 }
-console.log('Enabling auto-close')
 checkClose()
-
-// var observer = new MutationObserver(function (mutations) {
-//     mutations.forEach(function (mutation) {
-//         if (!mutation.addedNodes) return
-
-//         for (var i = 0; i < mutation.addedNodes.length; i++) {
-//             // do things to your newly added nodes here
-//             var node = mutation.addedNodes[i]
-//             checkClose()
-//         }
-//     })
-// })
-
-// observer.observe(document.body, {
-//     childList: true
-//     , subtree: true
-//     , attributes: false
-//     , characterData: false
-// })
-
-
-
-// stop watching using:
-//observer.disconnect()
