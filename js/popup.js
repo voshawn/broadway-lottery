@@ -164,6 +164,7 @@ function renderActiveLotteryRow(lotteryDetails) {
   checkbox.type = "checkbox";
   checkbox.id = showIndex;
   checkbox.className = "lucky-checkbox";
+  checkbox.checked = true;
   var label = document.createElement("label");
   label.setAttribute("for", showIndex);
   label.className = "checkbox-label";
