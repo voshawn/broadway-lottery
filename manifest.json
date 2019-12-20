@@ -16,6 +16,15 @@
       "scripts": ["js/jquery.js", "js/background.js"],
       "persistent": false
     },
+    "content_scripts": [
+      {
+        "matches": [
+          "*://lottery.broadwaydirect.com/enter-lottery/duplicate-entry/*"
+        ],
+        "js": ["js/auto-close.js"],
+        "all_frames": true
+      }
+    ],
     "page_action": {
       "default_popup": "popup.html",
       "default_icon": {

@@ -13,6 +13,9 @@ chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
 
 //receive message
 chrome.runtime.onMessage.addListener(function(message, sender) { 
+  if (message.message != 'open_show') {
+    return
+  }
 
   chrome.tabs.create({
     url: message.show_url,
@@ -24,7 +27,16 @@ chrome.runtime.onMessage.addListener(function(message, sender) {
       }, function () {
         chrome.tabs.executeScript(tab.id, { file: "js/lottery.js" })
       })
-    }, 5000);
+    }, 3000);
   });
+
+});
+
+chrome.runtime.onMessage.addListener(function(message, sender) { 
+  if (message.message != 'close_me') {
+    return
+  }
+
+  chrome.tabs.remove(sender.tab.id);
 
 });
