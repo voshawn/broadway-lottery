@@ -73,6 +73,8 @@ if (profile) {
   } catch (e) {
     // console.log("Error ", e.toString());
   }
+  // Scroll to bottom of the page
+  window.scrollTo(0,document.body.scrollHeight);
 } else {
   console.log("Profile not set")
 }

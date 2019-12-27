@@ -452,6 +452,7 @@ $("#open-shows").click(function () {
       selected.forEach(function (show_url) {
 
         chrome.runtime.sendMessage({
+          'message': 'open_show',
           'show_url': show_url,
           'profile': profile
         })
