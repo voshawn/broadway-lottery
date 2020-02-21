@@ -446,20 +446,11 @@ $("#open-shows").click(function () {
 
   chrome.storage.sync.get({ profiles: [] }, function (result) {
     var profiles = result.profiles
-
-    for (var i = 0; i < profiles.length; i++) {
-      var profile = profiles[i]
-      selected.forEach(function (show_url) {
-
-        chrome.runtime.sendMessage({
-          'message': 'open_show',
-          'show_url': show_url,
-          'profile': profile
-        })
-
-      });
-    }
-
+    chrome.runtime.sendMessage({
+      'message': 'open_shows',
+      'show_urls': selected,
+      'profiles': profiles
+    })
   });
 
 });
